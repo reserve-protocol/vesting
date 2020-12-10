@@ -28,6 +28,8 @@ After the tx has been sent, a new button labeled "view your transaction" should 
 
 Once the transaction has been mined, click on the "Logs" tab at the top. You should see two events. Look for the one named `TokenVestingDeployed`, and find the first argument. It should be called `location`. That is the address of the vesting contract. You can click on it to be brought there. You'll know you're in the right place if you end up on a contract page, and it has no past txs.
 
+[Screenshot](deployed_contract.png)
+
 ### Step 3
 
 Great! You've found the address of your newly deployed vesting contract!
