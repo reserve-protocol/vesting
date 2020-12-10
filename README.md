@@ -20,16 +20,23 @@ The only tricky part is calculating things in terms seconds. Here's an example o
     60*60*24*365*2=63,072,000.
 ```
 
-Great, you've entered the values. Hit the "connect to web3" prompt and once you're connected send off the tx!
+Great, you've entered the values. Hit the "connect to web3" prompt. Once you're connected, send off the tx! You'll probably want to use the "fast" gas setting.
 
 ### Step 2
 
-Once the transaction has been mined, you will need to go into the logs to discover where the vesting contract was deployed to. While in _the transaction view_, click on the `Logs` tab at the top. You should see two events. Look for the one named `TokenVestingDeployed`, and find the first argument. It should be called `location`. That is the address of the vesting contract. You can click on it to be brought there.
+After the tx has been sent, a new button labeled "view your transaction" should appear. Click on that. Wait for mining.
 
-I _believe_ that once you arrive, the contract will already be verified, and as such, you should be able to click on the "contract" tab, and find the "Read Contract" and "Write Contract" buttons. This is the interface you can use to verify that everything went as expected, and it's also the page you can send to the recipient that they can use to cause withdrawals.
-
-To sanity check the values that are shown under "Read Contract", you can check that `duration` is exactly what you expected, and that `cliff` is equal to `start` plus however long you wanted to wait for vesting to begin. So if you wanted vesting to begin immediately, then `start = cliff`. Finally, check that the beneficiary is who you expected (the recipient, same thing).
+Once the transaction has been mined, click on the "Logs" tab at the top. You should see two events. Look for the one named `TokenVestingDeployed`, and find the first argument. It should be called `location`. That is the address of the vesting contract. You can click on it to be brought there. You'll know you're in the right place if you end up on a contract page, and it has no past txs.
 
 ### Step 3
 
-Send the RSR to the deployed TokenVesting contract! This is the contract you were working on above where you could read out the `cliff`, `duration`, and `start` values. That's it! The beneficiary can call `release` function whenever they want to have all the tokens available to them at that time to be disbursed.
+Great! You've found the address of your newly deployed vesting contract!
+Send the RSR you would like vested to this address, in a normal RSR transfer.
+
+### Step 4 (For the beneficiary)
+
+The beneficiary will need to interact with your newly deployed vesting contract in order to retrieve their RSR at the end of the vesting period. Copy the etherscan URL and send it to them, along with the following instructions:
+
+```
+When the vesting period is over, you may withdraw your RSR by interacting with this contract on etherscan: <INSERT ETHERSCAN URL>. You'll need a metamask account, or another web3 wallet, to interact with the blockchain. You can check how many tokens are available for withdrawal at any time by clicking on "Contract" -> "Read Contract", and using the `releasable` function, providing the RSR token address (0x8762db106b2c2a0bccb3a80d1ed41273552616e8) as an argument. If you would like to perform the actual withdrawal, go to "Contract" -> "Write Contract", and call the `release` function, also passing in the RSR contract address.
+```
