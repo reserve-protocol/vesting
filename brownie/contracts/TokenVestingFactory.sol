@@ -21,9 +21,11 @@ contract TokenVestingFactory  {
         recipient, 
         block.timestamp, 
         startVestingInThisManySeconds, 
-        vestForThisManySeconds
+        startVestingInThisManySeconds + vestForThisManySeconds
     );
 
     emit TokenVestingDeployed(address(vesting), recipient);
+    return address(vesting);
   }
 }
+

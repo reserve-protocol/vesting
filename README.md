@@ -6,7 +6,7 @@ Simple easy-to-use factory etherscan interface for locking up tokens.
 
 ### Step 1
 
-Go here: https://etherscan.io/address/0xdf337057167ec910c6d7f75c123ac8e22f11da47#writeContract
+Go here: https://etherscan.io/address/0xf30952df6c0216eac763c35d34b8f8c6209c0a65#writeContract
 
 You'll see three parameters you will need to come up with. They're pretty straightforward though.
 
