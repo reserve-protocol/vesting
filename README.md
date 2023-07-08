@@ -37,7 +37,7 @@ Send the RSR you would like vested to this address, in a normal RSR transfer.
 
 ### Step 4 (For the beneficiary)
 
-The beneficiary will need to interact with your newly deployed vesting contract in order to retrieve their RSR at the end of the vesting period. Copy the etherscan URL and send it to them, along with the following instructions:
+The beneficiary will need to interact with the newly deployed vesting contract in order to retrieve their RSR at the end of the vesting period, though not necessarily from the same address. Intermediate withdrawals are also allowed. Copy the etherscan URL and send it to them, along with the following instructions:
 
 ```
 When the vesting period is over, you may withdraw your RSR by interacting with this contract on etherscan: <INSERT ETHERSCAN URL>. You'll need a metamask account, or another web3 wallet, to interact with the blockchain. You can check how many tokens are available for withdrawal at any time by clicking on "Contract" -> "Read Contract", and using the `releasable` function, providing the RSR token address (0x320623b8e4ff03373931769a31fc52a4e78b5d70) as an argument. If you would like to perform the actual withdrawal, go to "Contract" -> "Write Contract", and call the `release` function, also passing in the RSR contract address.
